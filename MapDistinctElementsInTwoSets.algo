@@ -1,0 +1,52 @@
+Program DistinctElementsInTwoSets 
+    
+VAR
+map = Map<Integer, Integer> ;
+set1 = integer[3, 1, 7, 9];
+set2 = integer[2, 4, 1, 9, 3];
+i:integer; 
+sum:integer;
+element :integer;
+count :integer;
+key :integer;
+
+BEGIN
+    
+    FOR i FROM 0 TO set1.length STEP 1  DO 
+             element = set1[i];
+            IF(map.containsKey(element)) 
+                count = map.get(element);
+                map.put(element, count+1);
+            else
+                map.put(element, 1);
+            END_IF
+    END_FOR
+     
+    
+
+
+    FOR i FROM 0 TO set2.length STEP 1  DO 
+            element = set2[i];
+            IF(map.containsKey(element)) 
+                count = map.get(element);
+                map.put(element, count+1);
+            else
+                map.put(element, 1);
+            END_IF
+    END_FOR
+
+        //get sum of distinct elements
+       sum = 0;
+        Set<Integer> set = map.keySet();
+        Iterator<Integer> iterator = set.iterator();
+        
+        WHILE (iterator.hasNext())DO
+           key = iterator.next();
+            IF(map.get(key)==1)
+                sum += key;
+            END_IF
+        END_WHILE
+
+        write("Distinct Elements Sum ");
+        write(sum);
+End

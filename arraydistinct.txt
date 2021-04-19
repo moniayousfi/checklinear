@@ -1,0 +1,59 @@
+Algorithm DistinctIntegers
+
+var
+
+set1 : ARRAY_OF INTEGER[10];
+set2 : ARRAY_OF INTEGER[10];
+i :integer;
+j:integer;
+sum :integer :=0;
+flag :integer :=0;
+
+BEGIN 
+
+set1 := {3,1,7,9};
+set2 := {2,4,1,1,9,3} ;
+
+FOR i FROM 0 TO length set1 STEP 1  DO
+
+    flag := 0;
+   
+    FOR j FROM 0 TO length set2 STEP 1  DO
+
+     IF (set1[i] = set2[j]) THEN
+     flag := 1;
+    END_IF
+    
+    END_FOR
+
+IF (flag = 0) THEN
+sum := sum + set1[i];
+END_IF
+
+END_FOR
+
+FOR i FROM 0 TO length set2 STEP 1  DO
+    flag := 0
+   
+   FOR j FROM 0 TO length set1 STEP 1  DO
+
+     
+    IF (set2[i] = set1[j]) THEN
+    
+    flag1 := 1
+    END_IF
+    
+  END_FOR
+
+IF (flag1=0)THEN
+sum := sum +set2[i] 
+END_IF
+
+END_FOR
+
+
+END
+
+
+
+
